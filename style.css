@@ -1,18 +1,32 @@
-/*.card-img-left {
-  border-bottom-left-radius: calc(.25rem - 1px);
-  border-top-left-radius: calc(.25rem - 1px);
-  float: left;
-  padding-right: 1em;
-  margin-bottom: -1.25em;
-  border-radius: 50%
-}*/
+:root {
+  --dark-color: #005005;
+  --light-color: #60ad5e;
+  --primary-color: #2e7d32;
+}
 
+body {
+    background-color: var(--light-color) !important;
+}
+.jumbotron {
+    background-color: var(--dark-color) !important;
+    color: #FFF;
+}
+
+.card {
+    margin-bottom: 0.25rem;
+}
 .card-body {
     display: flex;
     /*horizontally center children*/
     justify-content: center;
     /*vertically center children*/
     align-items: center;
+    background-color: var(--primary-color);
+    color: #FFF;
+}
+
+.card-body:hover {
+    background-color: var(--light-color);
 }
 
 .avatar {
@@ -29,4 +43,17 @@
 
 .title {
     font-size: 2rem;
+}
+
+footer > div > p {
+    color:var(--primary-color)
+}
+
+footer > div > p > a {
+    color:var(--dark-color)
+}
+
+footer > div > p > a:hover {
+    color: #FFF;
+    text-decoration: none;
 }
