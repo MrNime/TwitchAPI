@@ -32,6 +32,7 @@ body {
 
 .avatar {
     flex: 1;
+    margin-right: 1rem;
 }
 
 .cardInfo {
@@ -39,7 +40,8 @@ body {
 }
 
 .avatar > img {
-    border-radius: 50%
+    border-radius: 50%;
+    width: 100%;
 }
 
 .title {
