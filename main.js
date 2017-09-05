@@ -1,7 +1,6 @@
 $(document).ready(function() {
     var api = "https://wind-bow.gomix.me/twitch-api";
     var users = ["ESL_SC2", "freecodecamp", "Northernlion", "last_grey_wolf", "nonexistant_channelsdfsdf"];
-    // var userIDs = [26177965760, ];
 
     users.forEach(function(user) {
         //get user info
@@ -10,8 +9,7 @@ $(document).ready(function() {
             url: api + '/users/' + user + '?callback=?',
             dataType: 'jsonp',
             success: function(data) {
-                console.log(data);
-                var logo = data.logo || 'http://via.placeholder.com/100x100';
+                var logo = data.logo || 'https://via.placeholder.com/100x100';
                 var display_name = data.display_name || user;
                 if (data.error) {
                     html =
@@ -36,7 +34,6 @@ $(document).ready(function() {
                         url: api + '/streams/' + user + '?callback=?',
                         dataType: 'jsonp',
                         success: function(data) {
-                            console.log(data);
                             if (data.stream === null) {
                                 html =
                                 `
@@ -88,7 +85,6 @@ $(document).ready(function() {
         $('.toggle').removeClass('active');
         $(this).addClass("active");
         var choice = $(this).text().toLowerCase();
-        console.log(choice);
         if (choice === 'online') {
             $('#online').removeClass('hidden');
             $('#offline').addClass('hidden');
