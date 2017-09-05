@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log('ready');
     var api = "https://wind-bow.gomix.me/twitch-api";
     var users = ["ESL_SC2", "freecodecamp", "Northernlion", "last_grey_wolf", "nonexistant_channelsdfsdf"];
     // var userIDs = [26177965760, ];
@@ -23,12 +22,13 @@ $(document).ready(function() {
                     <img src=${logo} alt="avatar">
                     </div>
                     <div class="cardInfo">
-                    <div class="title">Channel does not exist</div>
+                    <div class="title">${display_name}</div>
+                    <div class="info">Channel does not exist</div>
                     </div>
                     </div>
                     </div>
                     `;
-                    $('#cardBox').append(html);
+                    $('#error').append(html);
                 } else {
                     //get stream info
                     $.ajax({
@@ -54,7 +54,7 @@ $(document).ready(function() {
                                 </div>
                                 </a>
                                 `;
-                                $('#cardBox').append(html);
+                                $('#offline').append(html);
                             } else {
                                 var game = data.stream.game;
                                 //make card
@@ -75,7 +75,7 @@ $(document).ready(function() {
                                 </a>
                                 `;
                                 //display card
-                                $('#cardBox').prepend(html);
+                                $('#online').prepend(html);
                             }
                         }
                     })
@@ -84,26 +84,21 @@ $(document).ready(function() {
         })
     });
 
-
-    // $.ajax({
-    //     type: 'GET',
-    //     url: api + '/streams/ESL_SC2' + '?callback=?',
-    //     dataType: 'jsonp',
-    //     success: function(data) {
-    //         console.log(data);
-    //         var status, game, viewers;
-    //         if (data.stream == null) {
-    //             status = 'offline';
-    //             game = 'Offline';
-    //         } else if (data.stream == undefined) {
-    //             status = 'offline';
-    //             game = 'Account does not exist';
-    //         } else {
-    //             status = 'online';
-    //             game = data.game;
-    //             viewers == data.viewers;
-    //
-    //         }
-    //     },
-    // });
+    $('.toggle').on('click', function(e) {
+        $('.toggle').removeClass('active');
+        $(this).addClass("active");
+        var choice = $(this).text().toLowerCase();
+        console.log(choice);
+        if (choice === 'online') {
+            $('#online').removeClass('hidden');
+            $('#offline').addClass('hidden');
+            $('#error').addClass('hidden');
+        } else if (choice === 'offline') {
+            $('#offline').removeClass('hidden');
+            $('#online').addClass('hidden');
+            $('#error').addClass('hidden');
+        } else {
+            $('#cardBox').children().removeClass('hidden');
+        }
+    });
 });

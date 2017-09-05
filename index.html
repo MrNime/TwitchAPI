@@ -13,34 +13,20 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-3">Twitch viewer</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <!-- <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p> -->
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" id="allBtn" class="btn btn-secondary toggle active">All</button>
+                <button type="button" id="onlineBtn" class="btn btn-secondary toggle">Online</button>
+                <button type="button" id="offlineBtn" class="btn btn-secondary toggle">Offline</button>
+            </div>
         </div>
     </div>
 
     <div class="container">
         <div id="cardBox">
-            <!-- <div class="card">
-                <div class="card-body">
-                    <div class="avatar">
-                        <img src="http://via.placeholder.com/100x100" alt="avatar">
-                    </div>
-                    <div class="cardInfo">
-                        <div class="title">Streamer name</div>
-                        <div class="info">currently playing: a game</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <div class="avatar">
-                        <img src="http://via.placeholder.com/100x100" alt="avatar">
-                    </div>
-                    <div class="cardInfo">
-                        <div class="title">Offline</div>
-                    </div>
-                </div>
-            </div> -->
+            <div id="online"></div>
+            <div id="offline"></div>
+            <div id="error"></div>
         </div>
     </div>
 

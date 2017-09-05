@@ -30,6 +30,10 @@ body {
     background-color: var(--light-color);
 }
 
+a:hover {
+    text-decoration: none !important;
+}
+
 .avatar {
     flex: 1;
     margin-right: 1rem;
@@ -59,4 +63,8 @@ footer > div > p > a {
 footer > div > p > a:hover {
     color: #FFF;
     text-decoration: none;
+}
+
+.hidden {
+    display: none;
 }
