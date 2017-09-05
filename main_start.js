@@ -5,7 +5,12 @@ $(document).ready(function() {
     // var userIDs = [26177965760, ];
 
     users.forEach(function(user) {
-        //get user info
+        var userInfo = getUserInfo(user);
+        var streamInfo = getStreamInfo(user);
+        $.when(userInfo, userInfo).done(makeCard(userInfo, streamInfo));
+    });
+
+    function getUserInfo(user) {
         $.ajax({
             type: 'GET',
             url: api + '/users/' + user + '?callback=?',
@@ -13,28 +18,29 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 var logo = data.logo;
-                var display_name = data.display_name;
-                //get stream info
-
-                //make card
-                var html =
-                `            <div class="card">
-                <div class="card-body">
-                <div class="avatar">
-                <img src=${logo} alt="avatar">
-                </div>
-                <div class="cardInfo">
-                <div class="title">${display_name}</div>
-                <div class="info">currently playing: a game</div>
-                </div>
-                </div>
-                </div>`
-                //display card
-                $('#cardBox').append(html);
             }
         })
-    });
+    }
 
+    function getStreamInfo(user) {
+
+    }
+
+    function makeCard(userInfo, streamInfo) {
+        var html =
+        `            <div class="card">
+                        <div class="card-body">
+                            <div class="avatar">
+                                <img src="wat" alt="avatar">
+                            </div>
+                            <div class="cardInfo">
+                                <div class="title">${userInfo}</div>
+                                <div class="info">currently playing: a game</div>
+                            </div>
+                        </div>
+                    </div>`
+        $('#cardBox').append(html);
+    }
 
     // $.ajax({
     //     type: 'GET',
