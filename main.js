@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var api = "https://wind-bow.gomix.me/twitch-api";
-    var users = ["ESL_SC2", "freecodecamp", "Northernlion", "last_grey_wolf", "nonexistant_channelsdfsdf"];
+    var users = ["ESL_SC2", "freecodecamp", "Northernlion", "last_grey_wolf", "giantbomb", "DanGheesling"];
 
     users.forEach(function(user) {
         //get user info
